@@ -1,0 +1,28 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('contato');
+});
+
+Route::get('/usuarios-view','App\Http\Controllers\UsuarioController@exibirUsuarios');
+
+Route::get('/usuarios-view/{id}','App\Http\Controllers\UsuarioController@destroy');
+
+Route::post('/usuario/inserir','App\Http\Controllers\UsuarioController@store');
+
+Route::get('/usuarios-editar/{id}/editar','App\Http\Controllers\UsuarioController@edit');
+
+Route::post('/usuarios-alterar/{id}','App\Http\Controllers\UsuarioController@update');
